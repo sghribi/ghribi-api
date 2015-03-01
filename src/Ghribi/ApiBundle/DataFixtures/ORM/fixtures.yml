@@ -1,0 +1,12 @@
+Ghribi\ApiBundle\Entity\Client:
+  client:
+    randomId: <numberBetween(0,10000000)>
+    secret: <numberBetween(0,10000000)>
+    allowedGrantTypes:
+      - authorization_code
+      - password
+      - refresh-token
+      - token
+      - client_credentials
+    redirectUris:
+      - http://addresse.dev
