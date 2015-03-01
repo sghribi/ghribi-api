@@ -1,1 +1,9 @@
 services:
+    access_control_allow_listener:
+        class:  Ghribi\ApiBundle\Listener\AccessControlAllowListener
+        tags:
+          - { name: kernel.event_listener, event: kernel.response }
+    http_options_listener:
+        class:  Ghribi\ApiBundle\Listener\HttpOptionsListener
+        tags:
+          - { name: kernel.event_listener, event: kernel.request }
