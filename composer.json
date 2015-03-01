@@ -1,5 +1,5 @@
 {
-    "name": "root/ghribi-api",
+    "name": "sghribi/ghribi-api",
     "license": "proprietary",
     "type": "project",
     "autoload": {
@@ -34,7 +34,9 @@
         "friendsofsymfony/user-bundle": "~2.0@dev"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.3",
+        "phpspec/prophecy-phpunit": "~1.0",
+        "phpunit/phpunit": "*"
     },
     "scripts": {
         "post-root-package-install": [

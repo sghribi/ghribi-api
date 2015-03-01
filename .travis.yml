@@ -1,0 +1,16 @@
+language: php
+
+php:
+  - 5.5
+
+before_script:
+  - mkdir -p ~/.composer
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - composer self-update
+  - composer install --no-progress --prefer-dist
+  - php bin/console doctrine:database:create --env=test
+  - php bin/console doctrine:schema:create --env=test
+  - php bin/console doctrine:fixtures:load -n --env=test
+
+script:
+  - phpunit -c phpunit.xml.dist
