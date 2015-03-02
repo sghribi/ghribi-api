@@ -1,10 +1,10 @@
-set :application, "myecp"
+set :application, "ghribi-app"
 set :user,        "www-data"
 set :app_path,    "app"
 
 ssh_options[:forward_agent] = true
 
-server "my.ecp.fr", :app, :web, :primary => true
+server "ghribi.net", :app, :web, :primary => true
 set :deploy_to,   "/var/www/api.ghribi.net/"
 set :branch, "master"
 
