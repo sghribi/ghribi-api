@@ -8,7 +8,7 @@ server "ghribi.net", :app, :web, :primary => true
 set :deploy_to,   "/var/www/api.ghribi.net/"
 set :branch, "master"
 
-set :repository,  "git@github.com:sghribi/ghribi-api.git"
+set :repository,  "https://github.com/sghribi/ghribi-api.git"
 set :scm,         :git
 
 # project config
