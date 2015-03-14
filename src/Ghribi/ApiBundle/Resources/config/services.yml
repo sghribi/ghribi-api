@@ -1,9 +1,20 @@
 services:
+
     access_control_allow_listener:
         class:  Ghribi\ApiBundle\Listener\AccessControlAllowListener
         tags:
           - { name: kernel.event_listener, event: kernel.response }
+
     http_options_listener:
         class:  Ghribi\ApiBundle\Listener\HttpOptionsListener
         tags:
           - { name: kernel.event_listener, event: kernel.request }
+
+    sonata.admin.letter:
+        class: Ghribi\ApiBundle\Admin\LetterAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Letters", label: "Letter" }
+        arguments:
+            - ~
+            - Ghribi\ApiBundle\Entity\Letter
+            - ~
