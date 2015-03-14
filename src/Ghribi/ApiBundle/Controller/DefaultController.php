@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/me")
+     * @Route("/api/me")
      */
     public function whoAmIAction()
     {
