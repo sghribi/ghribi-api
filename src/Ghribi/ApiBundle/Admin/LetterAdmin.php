@@ -14,7 +14,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 class LetterAdmin extends Admin
 {
     protected $baseRouteName = 'sonata_letter';
-    protected $baseRoutePattern = 'letter';
+    protected $baseRoutePattern = 'letters';
 
     /**
      * @param DatagridMapper $datagridMapper
@@ -22,6 +22,7 @@ class LetterAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('name')
             ->add('text')
         ;
     }
@@ -32,7 +33,7 @@ class LetterAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('text')
+            ->add('name')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -48,6 +49,7 @@ class LetterAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
        $formMapper
+           ->add('name')
            ->add('text')
         ;
     }
@@ -58,7 +60,7 @@ class LetterAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('text')
+            ->add('name')
         ;
     }
 }
