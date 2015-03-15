@@ -11,12 +11,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 /**
  * Class DefaultController
  *
- * @Route("/letter")
+ * @Route("/letters")
  */
 class LetterController extends Controller
 {
     /**
-     * @Route("/", defaults={"_format": "json"})
+     * @Route("", defaults={"_format": "json"})
      * @Method({"GET"})
      * @Rest\View()
      *
