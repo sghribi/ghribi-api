@@ -28,3 +28,12 @@ services:
             - ~
             - Ghribi\ApiBundle\Entity\Letter
             - ~
+
+    sonata.admin.letter_field:
+        class: Ghribi\ApiBundle\Admin\LetterFieldAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Letters", label: "Field" }
+        arguments:
+            - ~
+            - Ghribi\ApiBundle\Entity\LetterField
+            - ~
