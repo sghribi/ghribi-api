@@ -2,6 +2,8 @@
 
 namespace Ghribi\ApiBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 
@@ -39,6 +41,13 @@ class Letter
      * @Serializer\Expose
      */
     private $name;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="LetterField", cascade={"all"}, inversedBy="letters", orphanRemoval=true)
+     * @ORM\JoinTable(name="letter_letter_field")
+     * @Serializer\Expose
+     */
+    private $fields;
 
     /**
      * Get id
@@ -96,5 +105,46 @@ class Letter
     public function getName()
     {
         return $this->name;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->fields = new ArrayCollection();
+    }
+
+    /**
+     * Add fields
+     *
+     * @param LetterField $field
+     *
+     * @return Letter
+     */
+    public function addField(LetterField $field)
+    {
+        $this->fields[] = $field;
+
+        return $this;
+    }
+
+    /**
+     * Remove fields
+     *
+     * @param LetterField $field
+     */
+    public function removeField(LetterField $field)
+    {
+        $this->fields->removeElement($field);
+    }
+
+    /**
+     * Get fields
+     *
+     * @return Collection
+     */
+    public function getFields()
+    {
+        return $this->fields;
     }
 }

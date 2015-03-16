@@ -10,6 +10,16 @@ services:
         tags:
           - { name: kernel.event_listener, event: kernel.request }
 
+    letter_field_updater.service:
+        class: Ghribi\ApiBundle\Services\LetterFieldService
+
+    letter_field_updater.listener:
+        class: Ghribi\ApiBundle\Listener\LetterFieldListener
+        arguments: [@letter_field_updater.service]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+
     sonata.admin.letter:
         class: Ghribi\ApiBundle\Admin\LetterAdmin
         tags:
