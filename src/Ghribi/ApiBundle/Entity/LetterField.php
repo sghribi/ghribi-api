@@ -5,6 +5,7 @@ namespace Ghribi\ApiBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * LetterField
@@ -12,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="letter_field")
  * @ORM\Entity()
  * @ORM\HasLifecycleCallbacks()
+ * @Serializer\ExclusionPolicy("all")
  */
 class LetterField
 {
@@ -28,6 +30,7 @@ class LetterField
      * @var string
      *
      * @ORM\Column(name="label", type="string", length=255)
+     * @Serializer\Expose
      */
     private $label;
 
@@ -35,6 +38,7 @@ class LetterField
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @Serializer\Expose
      */
     private $name;
 
